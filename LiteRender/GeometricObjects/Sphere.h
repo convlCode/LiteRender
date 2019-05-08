@@ -3,7 +3,8 @@
 
 #include "GeometryObject.h"
 
-class Sphere : public GeometricObject {
+class Sphere : public GeometricObject 
+{
 public:
 	Sphere();
 	Sphere(const Vector3D &ct, const double &r);

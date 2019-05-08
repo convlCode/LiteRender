@@ -13,7 +13,7 @@ Tracer::Tracer(World * wp)
 Tracer::~Tracer()
 {
 	if (world_ptr) {
-		delete world_ptr;
+		//delete world_ptr;
 		world_ptr = nullptr;
 	}	
 }

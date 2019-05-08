@@ -45,6 +45,9 @@
     <ClCompile Include="GeometricObjects\GeometryObject.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Tracer\SingleSphere.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasicTools\Vector3D.h">
@@ -75,6 +78,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="GeometricObjects\GeometryObject.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Tracer\SingleSphere.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicTools\stb_image_write.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

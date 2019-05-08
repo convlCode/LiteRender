@@ -4,7 +4,9 @@
 #include "../BasicTools/Constants.h"
 #include "../BasicTools/RGBColor.h"
 #include "../BasicTools/Ray.h"
-#include "../World/World.h"
+//#include "../World/World.h" 会引起交叉include,可能有设计错误
+
+class World;
 
 class Tracer
 {
