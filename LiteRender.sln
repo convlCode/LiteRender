@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LiteRender", "LiteRender\LiteRender.vcxproj", "{E67A0FD3-15DC-4048-8D4F-0A294C552B36}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E67A0FD3-15DC-4048-8D4F-0A294C552B36}.Debug|x64.ActiveCfg = Debug|x64
+		{E67A0FD3-15DC-4048-8D4F-0A294C552B36}.Debug|x64.Build.0 = Debug|x64
+		{E67A0FD3-15DC-4048-8D4F-0A294C552B36}.Debug|x86.ActiveCfg = Debug|Win32
+		{E67A0FD3-15DC-4048-8D4F-0A294C552B36}.Debug|x86.Build.0 = Debug|Win32
+		{E67A0FD3-15DC-4048-8D4F-0A294C552B36}.Release|x64.ActiveCfg = Release|x64
+		{E67A0FD3-15DC-4048-8D4F-0A294C552B36}.Release|x64.Build.0 = Release|x64
+		{E67A0FD3-15DC-4048-8D4F-0A294C552B36}.Release|x86.ActiveCfg = Release|Win32
+		{E67A0FD3-15DC-4048-8D4F-0A294C552B36}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {579A2B13-63FA-4F38-B572-B36201AF4D66}
+	EndGlobalSection
+EndGlobal
