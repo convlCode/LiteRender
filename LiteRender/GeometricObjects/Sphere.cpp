@@ -1,5 +1,7 @@
 #include "Sphere.h"
 #include <cmath>
+#include "../BasicTools/Point3D.h"
+
 Sphere::Sphere()
 	:GeometricObject(),center{0.0},radius{0.0}
 {

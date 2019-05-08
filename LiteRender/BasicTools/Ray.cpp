@@ -5,7 +5,7 @@ Ray::Ray()
 {
 }
 
-Ray::Ray(const Vector3D & _o, const Vector3D & _d)
+Ray::Ray(const Point3D & _o, const Vector3D & _d)
 	: o{ _o }, d{ _d }
 {
 }

@@ -1,19 +1,20 @@
 #ifndef _RAY_H_
 #define _RAY_H_
 
+#include "Point3D.h"
 #include "Vector3D.h"
 
 class Ray
 {
 public:
 	Ray();
-	Ray(const Vector3D &_o, const Vector3D &_d);
+	Ray(const Point3D &_o, const Vector3D &_d);
 	Ray(const Ray &ray);
 	~Ray();
 
 	Ray& operator=(const Ray &ray);
 public:
-	Vector3D o;
+	Point3D o;
 	Vector3D d;
 };
 
