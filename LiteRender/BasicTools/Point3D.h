@@ -17,6 +17,7 @@ public:
 
 	Vector3D operator+(const Vector3D &v) const;
 	Vector3D operator-(const Vector3D &v) const;
+	Vector3D operator-(const Point3D &p) const; //used in Camera
 
 	double d_squared(const Point3D& p) const;
 	double distance(const Point3D& p) const;
@@ -44,6 +45,11 @@ inline Vector3D Point3D::operator+(const Vector3D & v) const
 inline Vector3D Point3D::operator-(const Vector3D & v) const
 {
 	return Vector3D(x - v.x, y - v.y, z - v.z);
+}
+
+inline Vector3D Point3D::operator-(const Point3D & p) const
+{
+	return Vector3D(x - p.x, y - p.y, z - p.z);
 }
 
 #endif

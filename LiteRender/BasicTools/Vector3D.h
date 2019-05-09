@@ -22,6 +22,9 @@ public:
 	Vector3D operator-();
 	Vector3D operator+=(const Vector3D &v) const;
 	Vector3D operator-=(const Vector3D &v) const;
+	Vector3D operator^ (const Vector3D& v) const; //cross product
+
+	void normalize();
 
 public:
 	double x;
@@ -42,6 +45,11 @@ inline Vector3D Vector3D::operator+=(const Vector3D &v) const
 inline Vector3D Vector3D::operator-=(const Vector3D &v) const
 {
 	return Vector3D(x - v.x, y - v.y, z - v.z);
+}
+
+inline Vector3D Vector3D::operator^(const Vector3D & v) const
+{
+	return Vector3D(y * v.z - z * v.y, z * v.x - x * v.z, x * v.y - y * v.x);
 }
 
 #endif

@@ -1,5 +1,5 @@
 #include "Vector3D.h"
-
+#include <cmath>
 
 
 Vector3D::Vector3D()
@@ -60,4 +60,12 @@ Vector3D Vector3D::operator*(const double s) const
 Vector3D Vector3D::operator/(const double s) const
 {
 	return Vector3D(x / s, y / s, z / s);
+}
+
+void Vector3D::normalize()
+{
+	double length = sqrt(x*x + y * y + z * z);
+	x /= length;
+	y /= length;
+	z /= length;
 }
