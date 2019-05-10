@@ -3,6 +3,7 @@
 #include "../BasicTools/stb_image_write.h"
 #include <iostream>
 #include "../Tracer/SingleSphere.h"
+
 World::World()
 	:background_color(black)
 {
@@ -45,7 +46,7 @@ void World::render_scene() const
 			pixel_color = background_color;
 			x = vp.s * (c - 0.5 * (vp.hres - 1.0));
 			y = vp.s * (r - 0.5 * (vp.vres - 1.0));
-			ray.o = Vector3D(x, y, zw);
+			ray.o = Point3D(x, y, zw);
 			pixel_color = tracer_ptr->trace_ray(ray);
 			display_pixel(pixel_color, colorsData[ny - 1 - r][c]);
 		}

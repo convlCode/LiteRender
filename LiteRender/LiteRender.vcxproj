@@ -139,28 +139,36 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BasicTools\Point2D.cpp" />
+    <ClCompile Include="BasicTools\Point3D.cpp" />
     <ClCompile Include="BasicTools\Ray.cpp" />
     <ClCompile Include="BasicTools\RGBColor.cpp" />
     <ClCompile Include="BasicTools\ShadeRec.cpp" />
+    <ClCompile Include="Cameras\Camera.cpp" />
+    <ClCompile Include="Cameras\Pinhole.cpp" />
     <ClCompile Include="GeometricObjects\GeometryObject.cpp" />
     <ClCompile Include="GeometricObjects\Sphere.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="BasicTools\Vector3D.cpp" />
-    <ClCompile Include="Tracer\SingleSphere.cpp" />
+    <ClCompile Include="Tracer\RayCast.cpp" />
     <ClCompile Include="Tracer\Tracer.cpp" />
     <ClCompile Include="World\ViewPlane.cpp" />
     <ClCompile Include="World\World.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasicTools\Constants.h" />
+    <ClInclude Include="BasicTools\Point2D.h" />
+    <ClInclude Include="BasicTools\Point3D.h" />
     <ClInclude Include="BasicTools\Ray.h" />
     <ClInclude Include="BasicTools\RGBColor.h" />
     <ClInclude Include="BasicTools\ShadeRec.h" />
     <ClInclude Include="BasicTools\stb_image_write.h" />
     <ClInclude Include="BasicTools\Vector3D.h" />
+    <ClInclude Include="Cameras\Camera.h" />
+    <ClInclude Include="Cameras\Pinhole.h" />
     <ClInclude Include="GeometricObjects\GeometryObject.h" />
     <ClInclude Include="GeometricObjects\Sphere.h" />
-    <ClInclude Include="Tracer\SingleSphere.h" />
+    <ClInclude Include="Tracer\RayCast.h" />
     <ClInclude Include="Tracer\Tracer.h" />
     <ClInclude Include="World\ViewPlane.h" />
     <ClInclude Include="World\World.h" />

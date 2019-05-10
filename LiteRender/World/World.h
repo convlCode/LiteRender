@@ -3,7 +3,8 @@
 
 #include "ViewPlane.h"
 #include "../GeometricObjects/Sphere.h"
-#include "../Tracer/SingleSphere.h"
+#include "../Tracer/RayCast.h"
+#include "../Cameras/Camera.h"
 #include <vector>
 
 struct RGB

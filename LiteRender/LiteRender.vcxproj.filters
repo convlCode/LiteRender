@@ -45,7 +45,19 @@
     <ClCompile Include="GeometricObjects\GeometryObject.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Tracer\SingleSphere.cpp">
+    <ClCompile Include="BasicTools\Point3D.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Tracer\RayCast.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Cameras\Camera.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicTools\Point2D.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Cameras\Pinhole.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -80,10 +92,22 @@
     <ClInclude Include="GeometricObjects\GeometryObject.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Tracer\SingleSphere.h">
+    <ClInclude Include="BasicTools\stb_image_write.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="BasicTools\stb_image_write.h">
+    <ClInclude Include="BasicTools\Point3D.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Tracer\RayCast.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Cameras\Camera.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicTools\Point2D.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Cameras\Pinhole.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
