@@ -7,13 +7,6 @@
 #include "../Cameras/Camera.h"
 #include <vector>
 
-struct RGB
-{
-	unsigned char R;
-	unsigned char G;
-	unsigned char B;
-};
-
 class World
 {
 public:
@@ -21,9 +14,8 @@ public:
 	~World();
 
 	void add_object(GeometricObject *object_ptr);
+	void set_camera(Camera* c_ptr);
 	ShadeRec hit_bare_bones_objects(const Ray &ray) const;
-	void render_scene() const;
-	void display_pixel(const RGBColor &pixel_color,RGB &color) const;
 	void build();
 
 public:
@@ -31,12 +23,18 @@ public:
 	RGBColor background_color;
 	Sphere sphere;
 	Tracer* tracer_ptr;
+	Camera* camera_ptr;
 	std::vector<GeometricObject *> objects;
 };
 
 inline void World::add_object(GeometricObject * object_ptr)
 {
 	objects.push_back(object_ptr);
+}
+
+inline void World::set_camera(Camera * c_ptr)
+{
+	camera_ptr = c_ptr;
 }
 
 #endif 

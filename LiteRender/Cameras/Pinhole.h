@@ -30,6 +30,8 @@ public:
 
 	Vector3D get_direction(const Point2D& p) const;
 
+	void display_pixel(const RGBColor & pixel_color, RGB &color, ViewPlane &vp) const;
+
 	virtual void render_scene(const World& w);
 
 private:
