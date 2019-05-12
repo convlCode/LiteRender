@@ -36,7 +36,7 @@ void World::build()
 {
 	vp.set_hres(400);
 	vp.set_vres(400);
-	vp.set_pixel_size(1);
+	vp.set_pixel_size(1.0f);
 	vp.set_gamma(1.0);
 	background_color = black;
 
@@ -44,7 +44,7 @@ void World::build()
 
 	Pinhole* pinhole_ptr = new Pinhole;
 	pinhole_ptr->set_eye(0.0f, 0.0f, 1000.0f);
-	pinhole_ptr->set_lookat(Point3D(0.0, 100.0, 0.0));
+	pinhole_ptr->set_lookat(Point3D(0.0, 0.0, 0.0));
 	pinhole_ptr->set_view_distance(1000);
 	pinhole_ptr->compute_uvw();
 	set_camera(pinhole_ptr);
