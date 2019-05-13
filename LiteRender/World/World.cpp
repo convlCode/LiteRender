@@ -3,9 +3,10 @@
 #include "../Tracer/RayCast.h"
 #include "../Cameras/Pinhole.h"
 #include "../Sampler/MultiJittered.h"
-
+#include "../Sampler/Regular.h"
 World::World()
-	:background_color(black)
+	:background_color(black),tracer_ptr{nullptr},
+	camera_ptr{nullptr}
 {
 }
 
@@ -41,7 +42,8 @@ void World::build()
 	vp.set_pixel_size(1.0f);
 	vp.set_gamma(1.0);
 	vp.set_samples(num_samples);
-	vp.set_sampler(new MultiJittered(num_samples));
+	//vp.set_sampler(new MultiJittered(num_samples));
+	//vp.set_sampler(new Regular(num_samples));
 	background_color = black;
 
 	tracer_ptr = new RayCast(this);

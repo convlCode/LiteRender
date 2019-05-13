@@ -4,6 +4,7 @@
 MultiJittered::MultiJittered()
 	: Sampler()
 {
+	generate_samples();
 }
 
 MultiJittered::MultiJittered(const int n_samples)

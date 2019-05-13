@@ -22,13 +22,10 @@ public:
 	virtual void generate_samples() = 0;
 
 	void set_num_sets(const int np);
-
 	int get_num_samples();
 
 	void shuffle_x_coordinates();
-
 	void shuffle_y_coordinates();
-
 	void setup_shuffled_indices();
 
 	Point2D	sample_unit_square();

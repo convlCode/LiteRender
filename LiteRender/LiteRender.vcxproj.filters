@@ -66,6 +66,12 @@
     <ClCompile Include="Sampler\MultiJittered.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="BxDFs\BRDF.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Sampler\Regular.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasicTools\Vector3D.h">
@@ -123,6 +129,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Sampler\MultiJittered.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BxDFs\BRDF.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Sampler\Regular.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

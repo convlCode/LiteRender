@@ -144,6 +144,7 @@
     <ClCompile Include="BasicTools\Ray.cpp" />
     <ClCompile Include="BasicTools\RGBColor.cpp" />
     <ClCompile Include="BasicTools\ShadeRec.cpp" />
+    <ClCompile Include="BxDFs\BRDF.cpp" />
     <ClCompile Include="Cameras\Camera.cpp" />
     <ClCompile Include="Cameras\Pinhole.cpp" />
     <ClCompile Include="GeometricObjects\GeometryObject.cpp" />
@@ -151,6 +152,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="BasicTools\Vector3D.cpp" />
     <ClCompile Include="Sampler\MultiJittered.cpp" />
+    <ClCompile Include="Sampler\Regular.cpp" />
     <ClCompile Include="Sampler\Sampler.cpp" />
     <ClCompile Include="Tracer\RayCast.cpp" />
     <ClCompile Include="Tracer\Tracer.cpp" />
@@ -167,11 +169,13 @@
     <ClInclude Include="BasicTools\ShadeRec.h" />
     <ClInclude Include="BasicTools\stb_image_write.h" />
     <ClInclude Include="BasicTools\Vector3D.h" />
+    <ClInclude Include="BxDFs\BRDF.h" />
     <ClInclude Include="Cameras\Camera.h" />
     <ClInclude Include="Cameras\Pinhole.h" />
     <ClInclude Include="GeometricObjects\GeometryObject.h" />
     <ClInclude Include="GeometricObjects\Sphere.h" />
     <ClInclude Include="Sampler\MultiJittered.h" />
+    <ClInclude Include="Sampler\Regular.h" />
     <ClInclude Include="Sampler\Sampler.h" />
     <ClInclude Include="Tracer\RayCast.h" />
     <ClInclude Include="Tracer\Tracer.h" />
