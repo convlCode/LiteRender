@@ -2,6 +2,7 @@
 #include <iostream>
 #include "../Tracer/RayCast.h"
 #include "../Cameras/Pinhole.h"
+#include "../Sampler/MultiJittered.h"
 
 World::World()
 	:background_color(black)
@@ -34,10 +35,13 @@ ShadeRec World::hit_bare_bones_objects(const Ray & ray) const
 
 void World::build()
 {
+	int num_samples = 100;
 	vp.set_hres(400);
 	vp.set_vres(400);
 	vp.set_pixel_size(1.0f);
 	vp.set_gamma(1.0);
+	vp.set_samples(num_samples);
+	vp.set_sampler(new MultiJittered(num_samples));
 	background_color = black;
 
 	tracer_ptr = new RayCast(this);

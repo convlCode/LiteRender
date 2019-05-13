@@ -150,6 +150,8 @@
     <ClCompile Include="GeometricObjects\Sphere.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="BasicTools\Vector3D.cpp" />
+    <ClCompile Include="Sampler\MultiJittered.cpp" />
+    <ClCompile Include="Sampler\Sampler.cpp" />
     <ClCompile Include="Tracer\RayCast.cpp" />
     <ClCompile Include="Tracer\Tracer.cpp" />
     <ClCompile Include="World\ViewPlane.cpp" />
@@ -157,6 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasicTools\Constants.h" />
+    <ClInclude Include="BasicTools\Maths.h" />
     <ClInclude Include="BasicTools\Point2D.h" />
     <ClInclude Include="BasicTools\Point3D.h" />
     <ClInclude Include="BasicTools\Ray.h" />
@@ -168,6 +171,8 @@
     <ClInclude Include="Cameras\Pinhole.h" />
     <ClInclude Include="GeometricObjects\GeometryObject.h" />
     <ClInclude Include="GeometricObjects\Sphere.h" />
+    <ClInclude Include="Sampler\MultiJittered.h" />
+    <ClInclude Include="Sampler\Sampler.h" />
     <ClInclude Include="Tracer\RayCast.h" />
     <ClInclude Include="Tracer\Tracer.h" />
     <ClInclude Include="World\ViewPlane.h" />

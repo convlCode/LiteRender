@@ -2,6 +2,7 @@
 #include "../BasicTools/Constants.h"
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "../BasicTools/stb_image_write.h"
+#include "../BasicTools/Point2D.h"
 
 Pinhole::Pinhole()
 	:Camera(), d{ 500.0f }, zoom{ 1.0f }
@@ -55,8 +56,8 @@ void Pinhole::render_scene(const World & w)
 	RGBColor pixel_color;
 	ViewPlane vp(w.vp);
 	Ray ray;
-	float x, y;
-
+	Point2D sp; //sample point in [0,1]*[0,1]
+	Point2D pp; //sample point on a pixel
 	vp.s /= zoom;
 	ray.o = eye;
 
@@ -66,10 +67,14 @@ void Pinhole::render_scene(const World & w)
 	for (int r = 0; r < vp.vres; r++) {
 		for (int c = 0; c < vp.hres; c++) {
 			pixel_color = w.background_color;
-			x = vp.s * (c - 0.5f * (vp.hres - 1));
-			y = vp.s * (r - 0.5f * (vp.vres - 1));
-			ray.d = get_direction(Point2D(x, y));
-			pixel_color = w.tracer_ptr->trace_ray(ray);
+			for (int j = 0; j < vp.num_samples; ++j) {
+				sp = vp.sampler_ptr->sample_unit_square();
+				pp.x = vp.s*(c - 0.5f*vp.hres + sp.x);
+				pp.y = vp.s*(r - 0.5f*vp.vres + sp.y);
+				ray.d = get_direction(pp);
+				pixel_color += w.tracer_ptr->trace_ray(ray);
+			}
+			pixel_color /= static_cast<float>(vp.num_samples);
 			display_pixel(pixel_color, colorsData[ny - 1 - r][c], vp);
 		}
 	}

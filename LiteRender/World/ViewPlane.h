@@ -1,6 +1,8 @@
 #ifndef _VIEWPLANE_H_
 #define _VIEWPLANE_H_
 
+#include "../Sampler/Sampler.h"
+
 class ViewPlane
 {
 public:
@@ -11,6 +13,8 @@ public:
 	void set_pixel_size(const float size);
 	void set_gamma(const float g);
 	void set_gamma_display(const bool show);
+	void set_samples(const int n);
+	void set_sampler(Sampler* sp);
 public:
 	int hres;
 	int vres;
@@ -18,6 +22,8 @@ public:
 	float gamma;
 	float inv_gamma;
 	bool show_out_of_gamut;
+	Sampler* sampler_ptr;
+	int num_samples;
 };
 
 inline void ViewPlane::set_hres(const int h)
