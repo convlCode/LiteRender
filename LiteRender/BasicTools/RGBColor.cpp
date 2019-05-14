@@ -1,6 +1,7 @@
 #include "RGBColor.h"
 #include <cmath>
 RGBColor::RGBColor()
+	:r(0.0), g(0.0), b(0.0)
 {
 }
 
@@ -51,6 +52,11 @@ RGBColor RGBColor::operator*(const float s) const
 RGBColor RGBColor::operator/(const float s) const
 {
 	return RGBColor(r / s, g / s, b / s);
+}
+
+RGBColor RGBColor::operator*(const RGBColor & c) const
+{
+	return RGBColor(r * c.r, g * c.g, b * c.b);
 }
 
 RGBColor & RGBColor::operator+=(const RGBColor & v)

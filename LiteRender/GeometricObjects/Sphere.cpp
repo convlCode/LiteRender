@@ -31,6 +31,11 @@ Sphere & Sphere::operator=(const Sphere & sp)
 	return *this;
 }
 
+Sphere * Sphere::clone() const
+{
+	return (new Sphere(*this));
+}
+
 bool Sphere::hit(const Ray & ray, double & tmin, ShadeRec & sr) const
 {
 	double t;

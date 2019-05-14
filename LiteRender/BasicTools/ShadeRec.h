@@ -6,6 +6,7 @@
 #include "RGBColor.h"
 
 class World;
+class Material;
 
 class ShadeRec {
 public:
@@ -15,12 +16,14 @@ public:
 
 public:
 	bool hit_an_object;
-	Vector3D local_hit_point;
+	Point3D hit_point;
+	Point3D local_hit_point;
 	Ray ray;
 	RGBColor color;
 	Vector3D normal; //该点的法向量
 	double t;
-	const World &w;
+	World &w;
+	Material*	material_ptr;
 };
 
 #endif /* ifndef _SHADEREC_H_ */

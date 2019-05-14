@@ -53,7 +53,7 @@ void Pinhole::display_pixel(const RGBColor & pixel_color, RGB &color,ViewPlane &
 
 void Pinhole::render_scene(const World & w)
 {
-	RGBColor pixel_color;
+	RGBColor L;
 	ViewPlane vp(w.vp);
 	Ray ray;
 	Point2D sp; //sample point in [0,1]*[0,1]
@@ -66,16 +66,19 @@ void Pinhole::render_scene(const World & w)
 	RGB colorsData[nx][ny];
 	for (int r = 0; r < vp.vres; r++) {
 		for (int c = 0; c < vp.hres; c++) {
-			pixel_color = w.background_color;
+			L = w.background_color;
 			for (int j = 0; j < vp.num_samples; ++j) {
 				sp = vp.sampler_ptr->sample_unit_square();
 				pp.x = vp.s*(c - 0.5f*vp.hres + sp.x);
 				pp.y = vp.s*(r - 0.5f*vp.vres + sp.y);
 				ray.d = get_direction(pp);
-				pixel_color += w.tracer_ptr->trace_ray(ray);
+				L += w.tracer_ptr->trace_ray(ray);
 			}
-			pixel_color /= static_cast<float>(vp.num_samples);
-			display_pixel(pixel_color, colorsData[ny - 1 - r][c], vp);
+			L /= static_cast<float>(vp.num_samples);
+			L = w.max_to_one(L);
+			colorsData[ny - 1 - r][c].R = static_cast<unsigned char>(255.99*L.r);
+			colorsData[ny - 1 - r][c].G = static_cast<unsigned char>(255.99*L.g);
+			colorsData[ny - 1 - r][c].B = static_cast<unsigned char>(255.99*L.b);
 		}
 	}
 	stbi_write_jpg("image.jpg", nx, ny, 3, colorsData, 100);

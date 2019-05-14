@@ -8,7 +8,6 @@ public:
 	Vector3D(double a);										// constructor
 	Vector3D(double _x, double _y, double _z);				// constructor
 	Vector3D(const Vector3D& v);							// copy constructor
-	//Vector3D(const Normal& n);								// constructs a vector from a Normal
 	//Vector3D(const Point3D& p);								// constructs a vector from a point
 	~Vector3D();
 

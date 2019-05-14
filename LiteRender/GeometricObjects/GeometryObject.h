@@ -5,38 +5,31 @@
 #include "../BasicTools/Ray.h"
 #include "../BasicTools/RGBColor.h"
 #include "../BasicTools/ShadeRec.h"
+class Material;
 
 class GeometricObject {
 public:
 	GeometricObject();
 	GeometricObject(const GeometricObject &obj);
-	GeometricObject &operator=(const GeometricObject &rhs);
 	virtual ~GeometricObject();
+
+	GeometricObject &operator=(const GeometricObject &rhs);
+	virtual GeometricObject* clone() const = 0;
 
 	virtual bool hit(const Ray &ray, double &t, ShadeRec &sr) const = 0;
 
-	void set_color(const RGBColor &c);
-	void set_color(const float r, const float g, const float b);
-	RGBColor get_color(void);
-public:
-	RGBColor color;
+	virtual void set_material(Material* m_ptr);
+	Material* get_material() const;
+
+protected:
+	Material* material_ptr;
 };
 
-inline void GeometricObject::set_color(const RGBColor & c)
-{
-	color = c;
-}
 
-inline void GeometricObject::set_color(const float r, const float g, const float b)
-{
-	color.r = r;
-	color.g = g;
-	color.b = b;
-}
 
-inline RGBColor GeometricObject::get_color(void)
+inline Material * GeometricObject::get_material() const
 {
-	return color;
+	return material_ptr;
 }
 
 #endif

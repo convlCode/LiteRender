@@ -1,4 +1,7 @@
 #include "Matte.h"
+#include "../BasicTools/ShadeRec.h"
+#include "../World/World.h"
+#include <iostream>
 
 Matte::Matte()
 	:Material(),
@@ -63,5 +66,13 @@ RGBColor Matte::shade(ShadeRec & sr)
 {
 	Vector3D wo = -sr.ray.d;
 	RGBColor L;
-	return RGBColor();
+	size_t num_lights = sr.w.lights.size();
+	for (size_t j = 0; j < num_lights; ++j) {
+		Vector3D wi = sr.w.lights[j]->get_direction(sr);
+		float ndotwi = static_cast<float>(sr.normal * wi);
+		if (ndotwi > 0.0f) {
+			L += diffuse_brdf->f(sr, wo, wi) * sr.w.lights[j]->L(sr) * ndotwi;
+		}
+	}
+	return L;
 }

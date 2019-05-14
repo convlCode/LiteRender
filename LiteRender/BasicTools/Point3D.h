@@ -15,7 +15,8 @@ public:
 	Point3D operator- (void) const;
 	Point3D operator* (const double a) const;
 
-	Vector3D operator+(const Vector3D &v) const;
+	//Vector3D operator+(const Vector3D &v) const;
+	Point3D operator+(const Vector3D &v) const;
 	Vector3D operator-(const Vector3D &v) const;
 	Vector3D operator-(const Point3D &p) const; //used in Camera
 
@@ -37,9 +38,9 @@ inline Point3D Point3D::operator*(const double a) const
 	return Point3D(x*a, y*a, z*a);
 }
 
-inline Vector3D Point3D::operator+(const Vector3D & v) const
+inline Point3D Point3D::operator+(const Vector3D & v) const
 {
-	return Vector3D(x + v.x, y + v.y, z + v.z);
+	return Point3D(x + v.x, y + v.y, z + v.z);
 }
 
 inline Vector3D Point3D::operator-(const Vector3D & v) const
