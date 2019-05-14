@@ -33,4 +33,11 @@ public:
 	float b;
 };
 
+// inlined non-member function-operator*
+// multiplication by a float on the left
+inline RGBColor operator* (const float a, const RGBColor& c) {
+	return (RGBColor(a * c.r, a * c.g, a * c.b));
+}
+
+
 #endif
