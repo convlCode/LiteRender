@@ -21,6 +21,9 @@ public:
 	void build();
 	ShadeRec hit_objects(const Ray& ray);
 	RGBColor max_to_one(const RGBColor& c) const;
+private:
+	void delete_objectes();
+	void delete_lights();
 
 public:
 	ViewPlane vp;

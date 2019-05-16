@@ -7,7 +7,9 @@ class ViewPlane
 {
 public:
 	ViewPlane();
+	ViewPlane(const ViewPlane& vp);
 	~ViewPlane();
+	ViewPlane& operator= (const ViewPlane& rhs);
 	void set_hres(const int h);
 	void set_vres(const int v);
 	void set_pixel_size(const float size);

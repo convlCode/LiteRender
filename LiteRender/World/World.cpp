@@ -17,6 +17,16 @@ World::World()
 
 World::~World()
 {
+	if (tracer_ptr) {
+		delete tracer_ptr;
+		tracer_ptr = nullptr;
+	}
+	if (camera_ptr) {
+		delete camera_ptr;
+		camera_ptr = nullptr;
+	}
+	delete_objectes();
+	delete_lights();
 }
 
 void World::build()
@@ -24,16 +34,16 @@ void World::build()
 	int num_samples = 25;
 	vp.set_hres(400);
 	vp.set_vres(400);
-	vp.set_pixel_size(0.5f);
+	vp.set_pixel_size(1.0f);
 	vp.set_gamma(1.0);
 	vp.set_samples(num_samples);
 
 	tracer_ptr = new RayCast(this);
 
 	Pinhole* pinhole_ptr = new Pinhole;
-	pinhole_ptr->set_eye(0.0f, 0.0f, 500.0f);
+	pinhole_ptr->set_eye(0.0f, 0.0f, 100.0f);
 	pinhole_ptr->set_lookat(Point3D(0.0, 0.0, 0.0));
-	pinhole_ptr->set_view_distance(600.0f);
+	pinhole_ptr->set_view_distance(100.0f);
 	pinhole_ptr->compute_uvw();
 	set_camera(pinhole_ptr);
 
@@ -48,7 +58,7 @@ void World::build()
 	matte_ptr->set_kd(0.75f);
 	matte_ptr->set_cd(light_purple);
 	
-	Sphere*	sphere_ptr = new Sphere(Vector3D(5.0, 3.0, 0.0), 50.0);
+	Sphere*	sphere_ptr = new Sphere(Vector3D(0.0, 0.0, 0.0), 100.0);
 	sphere_ptr->set_material(matte_ptr);							// light purple
 	add_object(sphere_ptr);
 }
@@ -90,4 +100,27 @@ RGBColor World::max_to_one(const RGBColor & c) const
 		return (c / max_value);
 	else
 		return (c);
+}
+
+void World::delete_objectes()
+{
+	size_t num_objects = objects.size();
+
+	for (size_t j = 0; j < num_objects; j++) {
+		delete objects[j];
+		objects[j] = nullptr;
+	}
+	objects.erase(objects.begin(), objects.end());
+}
+
+void World::delete_lights()
+{
+	size_t num_lights = lights.size();
+
+	for (size_t j = 0; j < num_lights; j++) {
+		delete lights[j];
+		lights[j] = nullptr;
+	}
+
+	lights.erase(lights.begin(), lights.end());
 }
