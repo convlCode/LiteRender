@@ -1,5 +1,5 @@
-#ifndef __LAMBERTIAN__
-#define __LAMBERTIAN__
+#ifndef LAMBERTIAN_H
+#define LAMBERTIAN_H
 
 #include "BRDF.h"
 
@@ -13,7 +13,7 @@ public:
 	Lambertian& operator=(const Lambertian& rhs);
 
 	virtual RGBColor f(const ShadeRec& sr, const Vector3D& wo, const Vector3D& wi) const;
-	virtual RGBColor rho(const ShadeRec& sr, const Vector3D& wo);//use for ambient light
+    virtual RGBColor rho(const ShadeRec& sr, const Vector3D& wo) const;//use for ambient light
 
 	void set_ka(const float k); //for ambient light
 	void set_kd(const float k);

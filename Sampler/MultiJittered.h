@@ -1,5 +1,5 @@
-#ifndef __MULTI_JITTERED__
-#define __MULTI_JITTERED__
+#ifndef MULTI_JITTERED_H
+#define MULTI_JITTERED_H
 
 #include "Sampler.h"
 

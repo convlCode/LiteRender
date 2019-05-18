@@ -1,5 +1,5 @@
-#ifndef __SAMPLER__
-#define __SAMPLER__
+#ifndef SAMPLER_H
+#define SAMPLER_H
 
 #include <vector>
 #include <cmath>

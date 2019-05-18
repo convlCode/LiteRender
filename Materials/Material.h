@@ -1,5 +1,5 @@
-#ifndef __MATERIAL__
-#define __MATERIAL__
+#ifndef MATERIAL_H
+#define MATERIAL_H
 
 #include "../BasicTools/RGBColor.h"
 #include "../BasicTools/ShadeRec.h"

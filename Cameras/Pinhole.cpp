@@ -33,7 +33,8 @@ Pinhole & Pinhole::operator=(const Pinhole & rhs)
 
 Ray Pinhole::get_ray(Point2D &point) const
 {
-    Vector3D direction = u * point.x + v * point.y - w * d;
+    Vector3D direction = u * static_cast<double>(point.x) +
+            v * static_cast<double>(point.y) - w * static_cast<double>(d);
     direction.normalize();
     return Ray(eye,direction);
 }

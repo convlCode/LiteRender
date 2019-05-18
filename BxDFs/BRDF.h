@@ -1,5 +1,5 @@
-#ifndef __BRDF__
-#define __BRDF__
+#ifndef BRDF_H
+#define BRDF_H
 
 #include "../BasicTools/RGBColor.h"
 #include "../BasicTools/Vector3D.h"

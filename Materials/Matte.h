@@ -1,5 +1,5 @@
-#ifndef __MATTE__
-#define __MATTE__
+#ifndef MATTE_H
+#define MATTE_H
 
 #include "Material.h"
 #include "../BxDFs/Lambertian.h"

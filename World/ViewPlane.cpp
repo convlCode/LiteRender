@@ -1,4 +1,4 @@
-#include "ViewPlane.h"
+ï»¿#include "ViewPlane.h"
 #include "../Sampler/MultiJittered.h"
 #include "../Sampler/Regular.h"
 ViewPlane::ViewPlane()
@@ -8,17 +8,16 @@ ViewPlane::ViewPlane()
 }
 
 ViewPlane::ViewPlane(const ViewPlane & vp)
-	: hres{ vp.hres }, vres{ vp.vres },s{vp.s},
-	num_samples{vp.num_samples},gamma{vp.gamma},
+	: hres{ vp.hres }, vres{ vp.vres },s{vp.s},gamma{vp.gamma},
 	inv_gamma{vp.inv_gamma},show_out_of_gamut{vp.show_out_of_gamut},
-	sampler_ptr{vp.sampler_ptr}
+    sampler_ptr{vp.sampler_ptr},num_samples{vp.num_samples}
 {
 }
 
 ViewPlane::~ViewPlane()
 {
 	//if (sampler_ptr) {
-		//delete sampler_ptr; //²»×¢ÊÍ»áÒı·¢Òì³£
+		//delete sampler_ptr; //ä¸æ³¨é‡Šä¼šå¼•å‘å¼‚å¸¸
 		//sampler_ptr = nullptr;
 	//}
 }

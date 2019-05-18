@@ -1,5 +1,5 @@
-#ifndef __REGULAR__
-#define __REGULAR__
+#ifndef REGULAR_H
+#define REGULAR_H
 
 #include "Sampler.h"
 

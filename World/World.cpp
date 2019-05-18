@@ -10,7 +10,7 @@
 
 World::World()
 	:background_color(black),tracer_ptr{nullptr},
-	camera_ptr{nullptr}
+      camera_ptr{nullptr},image{nullptr}
 {
 }
 
@@ -44,7 +44,7 @@ void World::build()
 	tracer_ptr = new RayCast(this);
 
 	Pinhole* pinhole_ptr = new Pinhole;
-	pinhole_ptr->set_eye(0.0f, 0.0f, 100.0f);
+    pinhole_ptr->set_eye(0.0f, 0.0f, 100.0f);
 	pinhole_ptr->set_lookat(Point3D(0.0, 0.0, 0.0));
 	pinhole_ptr->set_view_distance(100.0f);
 	pinhole_ptr->compute_uvw();
@@ -61,7 +61,7 @@ void World::build()
 	matte_ptr->set_kd(0.75f);
 	matte_ptr->set_cd(light_purple);
 	
-	Sphere*	sphere_ptr = new Sphere(Vector3D(0.0, 0.0, 0.0), 100.0);
+    Sphere*	sphere_ptr = new Sphere(Vector3D(0.0, 0.0, -50.0), 100.0);
 	sphere_ptr->set_material(matte_ptr);							// light purple
 	add_object(sphere_ptr);
 }
@@ -74,9 +74,9 @@ ShadeRec World::hit_objects(const Ray & ray)
 	Vector3D	normal;
 	Point3D		local_hit_point;
 	double		tmin = kHugeValue;
-	int 		num_objects = static_cast<int>(objects.size());
+    auto 		num_objects = objects.size();
 
-	for (int j = 0; j < num_objects; j++)
+    for (size_t j = 0; j < num_objects; j++)
 		if (objects[j]->hit(ray, t, sr) && (t < tmin)) {
 			sr.hit_an_object = true;
 			tmin = t;
@@ -99,7 +99,7 @@ RGBColor World::max_to_one(const RGBColor & c) const
 {
 	float max_value = std::max(c.r, std::max(c.g, c.b) );
 
-	if (max_value > 1.0)
+    if (max_value > 1.0f)
 		return (c / max_value);
 	else
         return (c);
@@ -127,7 +127,7 @@ void World::render_scene()
             }
             L /= static_cast<float>(vp.num_samples);
             L = max_to_one(L);
-            QColor pixColor(int(255.99*L.r), int(255.99*L.g), int(255.99*L.b));
+            QColor pixColor(int(255.99f*L.r), int(255.99f*L.g), int(255.99f*L.b));
             image->setPixelColor(r,c,pixColor);
         }
     }

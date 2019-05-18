@@ -17,14 +17,17 @@
    <widget class="QLabel" name="renderCanvas">
     <property name="geometry">
      <rect>
-      <x>139</x>
+      <x>150</x>
       <y>0</y>
       <width>400</width>
       <height>400</height>
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QWidget" name="horizontalLayoutWidget">

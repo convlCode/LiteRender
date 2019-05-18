@@ -35,7 +35,7 @@ RGBColor Lambertian::f(const ShadeRec & sr, const Vector3D & wo, const Vector3D 
 	return  cd * kd * static_cast<const float>(invPI);
 }
 
-RGBColor Lambertian::rho(const ShadeRec & sr, const Vector3D & wo)
+RGBColor Lambertian::rho(const ShadeRec & sr, const Vector3D & wo) const
 {
 	return kd * cd;
 }

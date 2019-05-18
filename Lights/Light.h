@@ -1,5 +1,5 @@
-#ifndef __LIGHT__
-#define __LIGHT__
+#ifndef LIGHT_H
+#define LIGHT_H
 
 #include "../BasicTools/Vector3D.h"
 #include "../BasicTools/RGBColor.h"

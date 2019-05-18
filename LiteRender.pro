@@ -24,9 +24,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 CONFIG += c++11
 
-SOURCES += \
-        main.cpp \
-        mainwindow.cpp \
+SOURCES +=\
     BasicTools/Point2D.cpp \
     BasicTools/Point3D.cpp \
     BasicTools/Ray.cpp \
@@ -54,7 +52,6 @@ SOURCES += \
     mainwindow.cpp
 
 HEADERS += \
-        mainwindow.h \
     BasicTools/Constants.h \
     BasicTools/Maths.h \
     BasicTools/Point2D.h \

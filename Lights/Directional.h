@@ -1,5 +1,5 @@
-#ifndef __DIRECTIONAL__
-#define __DIRECTIONAL__
+#ifndef DIRECTIONAL_H
+#define DIRECTIONAL_H
 
 #include "Light.h"
 

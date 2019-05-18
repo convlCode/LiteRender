@@ -1,5 +1,5 @@
-#ifndef __CAMERA__
-#define __CAMERA__
+#ifndef CAMERA_H
+#define CAMERA_H
 
 #include "../BasicTools/Point3D.h" //included Vector3D
 #include "BasicTools/Point2D.h"
@@ -56,7 +56,9 @@ inline void Camera::set_eye(const Point3D & p)
 
 inline void Camera::set_eye(const float x, const float y, const float z)
 {
-	eye.x = x;	eye.y = y;	eye.z = z;
+    eye.x = static_cast<double>(x);
+    eye.y = static_cast<double>(y);
+    eye.z = static_cast<double>(z);
 }
 
 inline void Camera::set_lookat(const Point3D & p)
@@ -66,7 +68,9 @@ inline void Camera::set_lookat(const Point3D & p)
 
 inline void Camera::set_lookat(const float x, const float y, const float z)
 {
-	lookat.x = x;	lookat.y = y;	lookat.z = z;
+    lookat.x = static_cast<double>(x);
+    lookat.y = static_cast<double>(y);
+    lookat.z = static_cast<double>(z);
 }
 
 inline void Camera::set_up_vector(const Vector3D & u)
@@ -76,7 +80,9 @@ inline void Camera::set_up_vector(const Vector3D & u)
 
 inline void Camera::set_up_vector(const float x, const float y, const float z)
 {
-	up.x = x;	up.y = y;	up.z = z;
+    up.x = static_cast<double>(x);
+    up.y = static_cast<double>(y);
+    up.z = static_cast<double>(z);
 }
 
 inline void Camera::set_exposure_time(const float exposure)

@@ -1,14 +1,14 @@
 #include "Camera.h"
 
 Camera::Camera()
-	:eye{ 0, 0, 500 }, lookat{ 0.0 }, up{ 0.0, 1.0, 0.0 },
-	u{1.0, 0.0, 0.0}, v{0.0, 1.0, 0.0}, w{0.0, 0.0, 1.0}, exposure_time{ 1.0f }
+    :eye{ 0, 0, 500 }, lookat{ 0.0 },u{1.0, 0.0, 0.0}, v{0.0, 1.0, 0.0},
+      w{0.0, 0.0, 1.0}, up{ 0.0, 1.0, 0.0 }, exposure_time{ 1.0f }
 {
 }
 
 Camera::Camera(const Camera & c)
-	: eye{ c.eye }, lookat{ c.lookat }, up{ c.up },
-	u{ c.u }, v{ c.v }, w{ c.w }, exposure_time{ c.exposure_time }
+    : eye{ c.eye }, lookat{ c.lookat },u{ c.u },
+      v{ c.v }, w{ c.w }, up{ c.up },exposure_time{ c.exposure_time }
 {
 }
 

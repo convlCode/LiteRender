@@ -3,7 +3,7 @@
 #include <random>
 #include "Constants.h"
 
-inline int rand_int()
+inline unsigned int rand_int()
 {
 	static std::uniform_int_distribution<unsigned> u(0, 0x7fff);
 	static std::default_random_engine e;
@@ -17,7 +17,7 @@ inline float rand_float()
 	return u(e);
 }
 
-inline int rand_int(int low, int high)
+inline unsigned int rand_int(unsigned int low,unsigned int high)
 {
 	static std::uniform_int_distribution<unsigned> u(low, high);
 	static std::default_random_engine e;
