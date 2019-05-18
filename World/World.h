@@ -25,7 +25,6 @@ public:
 	void build();
 	ShadeRec hit_objects(const Ray& ray);
 	RGBColor max_to_one(const RGBColor& c) const;
-    void clearScene();
     void render_scene();
 private:
 	void delete_objectes();

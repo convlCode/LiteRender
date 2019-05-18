@@ -105,27 +105,6 @@ RGBColor World::max_to_one(const RGBColor & c) const
         return (c);
 }
 
-void World::clearScene(){
-
-    /*
-    for (auto it = lights.begin(); it != lights.end(); it++) {
-        delete (*it);
-    }
-    lights.clear();*/
-
-    for (auto it = objects.begin(); it != objects.end(); it++) {
-        delete (*it);
-    }
-    objects.clear();
-    if(tracer_ptr){
-        delete tracer_ptr;
-        tracer_ptr=nullptr;
-    }
-    if(camera_ptr){
-        delete camera_ptr;
-        camera_ptr=nullptr;
-    }
-}
 void World::render_scene()
 {
     if(image){
@@ -154,18 +133,14 @@ void World::render_scene()
         }
     }
     emit renderComolete();
-    //clearScene();//没有这一步的话，像素值会增加一倍,因为在renderComplete中会再次调用build
 }
 
 void World::delete_objectes()
 {
-	size_t num_objects = objects.size();
-
-	for (size_t j = 0; j < num_objects; j++) {
-		delete objects[j];
-		objects[j] = nullptr;
-	}
-	objects.erase(objects.begin(), objects.end());
+    for (auto it = objects.begin(); it != objects.end(); it++) {
+        delete (*it);
+    }
+    objects.clear();
 }
 
 void World::delete_lights()
@@ -177,5 +152,5 @@ void World::delete_lights()
 		lights[j] = nullptr;
 	}
 
-	lights.erase(lights.begin(), lights.end());
+    lights.clear();
 }
