@@ -1,5 +1,5 @@
-#ifndef __CONSTANTS__
-#define __CONSTANTS__
+#ifndef CONSTANTS_H
+#define CONSTANTS_H
 #include "RGBColor.h"
 
 const double PI = 3.1415926535897932384;

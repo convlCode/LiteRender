@@ -1,5 +1,5 @@
-#ifndef __MATHS__
-#define __MATHS__
+#ifndef HEAD_MATHS
+#define HEAD_MATHS
 #include <random>
 #include "Constants.h"
 

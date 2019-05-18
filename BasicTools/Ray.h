@@ -1,5 +1,5 @@
-#ifndef _RAY_H_
-#define _RAY_H_
+#ifndef RAY_H
+#define RAY_H
 
 #include "Point3D.h"
 #include "Vector3D.h"

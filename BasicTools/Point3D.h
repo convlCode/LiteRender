@@ -1,5 +1,5 @@
-#ifndef __POINT3D__
-#define __POINT3D__
+#ifndef POINT3D_H
+#define POINT3D_H
 
 #include "Vector3D.h"
 

@@ -1,5 +1,5 @@
-#ifndef __RAY_CAST__
-#define __RAY_CAST__
+#ifndef RAY_CAST_H
+#define RAY_CAST_H
 
 #include "Tracer.h"
 

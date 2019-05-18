@@ -1,5 +1,5 @@
-#ifndef _SHADEREC_H_
-#define _SHADEREC_H_
+ï»¿#ifndef SHADEREC_H
+#define SHADEREC_H
 
 #include "Vector3D.h"
 #include "Ray.h"
@@ -20,7 +20,7 @@ public:
 	Point3D local_hit_point;
 	Ray ray;
 	RGBColor color;
-	Vector3D normal; //¸ÃµãµÄ·¨ÏòÁ¿
+	Vector3D normal; //è¯¥ç‚¹çš„æ³•å‘é‡
 	double t;
 	World &w;
 	Material*	material_ptr;

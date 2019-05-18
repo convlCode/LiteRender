@@ -1,5 +1,5 @@
-#ifndef _RGB_H_
-#define _RGB_H_
+#ifndef RGB_H
+#define RGB_H
 
 class RGBColor 
 {

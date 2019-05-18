@@ -1,5 +1,5 @@
-#ifndef __POINT_2D__
-#define __POINT_2D__
+#ifndef POINT2D_H
+#define POINT2D_H
 
 class Point2D {
 public:

@@ -1,15 +1,7 @@
-#ifndef __PINHOLE__
-#define __PINHOLE__
+#ifndef PINHOLE_H
+#define PINHOLE_H
 
-#include "../BasicTools/Point2D.h"
-#include "../World/World.h"    // we can #include "World.h" here
-
-struct RGB
-{
-	unsigned char R;
-	unsigned char G;
-	unsigned char B;
-};
+#include "Camera.h"
 
 class Pinhole : public Camera {
 public:
@@ -27,12 +19,12 @@ public:
 	void set_view_distance(const float vpd);
 
 	void set_zoom(const float zoom_factor);
+    virtual Ray get_ray(Point2D &point) const;
+    //Vector3D get_direction(const Point2D& p) const;
 
-	Vector3D get_direction(const Point2D& p) const;
+    //void display_pixel(const RGBColor & pixel_color, RGB &color, ViewPlane &vp) const;
 
-	void display_pixel(const RGBColor & pixel_color, RGB &color, ViewPlane &vp) const;
-
-	virtual void render_scene(const World& w);
+    //virtual void render_scene(const World& w);
 
 private:
 

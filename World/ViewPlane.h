@@ -1,5 +1,5 @@
-#ifndef _VIEWPLANE_H_
-#define _VIEWPLANE_H_
+#ifndef VIEWPLANE_H
+#define VIEWPLANE_H
 
 #include "../Sampler/Sampler.h"
 
@@ -54,4 +54,4 @@ inline void ViewPlane::set_gamma_display(const bool show)
 	show_out_of_gamut = show;
 }
 
-#endif // !_VIEWPLANE_H_
+#endif // !VIEWPLANE_H

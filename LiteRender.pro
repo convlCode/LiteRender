@@ -62,7 +62,6 @@ HEADERS += \
     BasicTools/Ray.h \
     BasicTools/RGBColor.h \
     BasicTools/ShadeRec.h \
-    BasicTools/stb_image_write.h \
     BasicTools/Vector3D.h \
     BxDFs/BRDF.h \
     BxDFs/Lambertian.h \

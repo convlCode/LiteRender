@@ -1,7 +1,5 @@
 #include "Pinhole.h"
 #include "../BasicTools/Constants.h"
-#define STB_IMAGE_WRITE_IMPLEMENTATION
-#include "../BasicTools/stb_image_write.h"
 #include "../BasicTools/Point2D.h"
 
 Pinhole::Pinhole()
@@ -30,9 +28,16 @@ Pinhole & Pinhole::operator=(const Pinhole & rhs)
 	Camera::operator=(rhs);
 	d = rhs.d;
 	zoom = rhs.zoom;
-	return *this;
+    return *this;
 }
 
+Ray Pinhole::get_ray(Point2D &point) const
+{
+    Vector3D direction = u * point.x + v * point.y - w * d;
+    direction.normalize();
+    return Ray(eye,direction);
+}
+/*
 Vector3D Pinhole::get_direction(const Point2D & p) const
 {
 	Vector3D direction = u * p.x + v * p.y - w * d; //float converted to double
@@ -82,4 +87,4 @@ void Pinhole::render_scene(const World & w)
 		}
 	}
 	stbi_write_jpg("image.jpg", nx, ny, 3, colorsData, 100);
-}
+}*/

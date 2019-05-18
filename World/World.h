@@ -1,18 +1,22 @@
-#ifndef _WORLD_H_
-#define _WORLD_H_
+#ifndef WORLD_H
+#define WORLD_H
 
 #include "ViewPlane.h"
-#include "../GeometricObjects/Sphere.h"
-#include "../Tracer/RayCast.h"
-#include "../Cameras/Camera.h"
-#include "../Lights/Light.h"
+#include "GeometricObjects/Sphere.h"
+#include "Tracer/RayCast.h"
+#include "Cameras/Camera.h"
+#include "Lights/Light.h"
 #include <vector>
+#include <QObject>
+#include <QImage>
+#include <QColor>
 
-class World
+class World : public QObject
 {
+    Q_OBJECT
 public:
 	World();
-	~World();
+    virtual ~World();
 
 	void add_object(GeometricObject *object_ptr);
 	void add_light(Light* light);
@@ -21,9 +25,13 @@ public:
 	void build();
 	ShadeRec hit_objects(const Ray& ray);
 	RGBColor max_to_one(const RGBColor& c) const;
+    void render_scene();
 private:
 	void delete_objectes();
 	void delete_lights();
+
+signals:
+    void renderComolete();
 
 public:
 	ViewPlane vp;
@@ -32,6 +40,7 @@ public:
 	Camera* camera_ptr;
 	std::vector<GeometricObject *> objects;
 	std::vector<Light*>			lights;
+    QImage* image;
 };
 
 inline void World::add_object(GeometricObject * object_ptr)

@@ -1,12 +1,12 @@
 #include "World.h"
 #include <iostream>
 #include <algorithm>
-#include "../Tracer/RayCast.h"
-#include "../Cameras/Pinhole.h"
-#include "../Sampler/MultiJittered.h"
-#include "../Sampler/Regular.h"
-#include "../Lights/Directional.h"
-#include "../Materials/Matte.h"
+#include "Tracer/RayCast.h"
+#include "Cameras/Pinhole.h"
+#include "Sampler/MultiJittered.h"
+#include "Sampler/Regular.h"
+#include "Lights/Directional.h"
+#include "Materials/Matte.h"
 
 World::World()
 	:background_color(black),tracer_ptr{nullptr},
@@ -25,6 +25,9 @@ World::~World()
 		delete camera_ptr;
 		camera_ptr = nullptr;
 	}
+    if(image){
+        delete  image;
+    }
 	delete_objectes();
 	delete_lights();
 }
@@ -84,7 +87,7 @@ ShadeRec World::hit_objects(const Ray & ray)
 		}
 
 	if (sr.hit_an_object) {
-		sr.t = static_cast<float>(tmin);
+        sr.t = tmin;
 		sr.normal = normal;
 		sr.local_hit_point = local_hit_point;
 	}
@@ -99,7 +102,36 @@ RGBColor World::max_to_one(const RGBColor & c) const
 	if (max_value > 1.0)
 		return (c / max_value);
 	else
-		return (c);
+        return (c);
+}
+
+void World::render_scene()
+{
+    if(image)
+        delete image;
+    image=new QImage(vp.vres,vp.hres,QImage::Format_RGB888);
+    RGBColor L;
+    Ray ray;
+    Point2D sp; //sample point in [0,1]*[0,1]
+    Point2D pp; //sample point on a pixel
+
+    for (int r = 0; r < vp.vres; r++) {
+        for (int c = 0; c < vp.hres; c++) {
+            L = background_color;
+            for (int j = 0; j < vp.num_samples; ++j) {
+                sp = vp.sampler_ptr->sample_unit_square();
+                pp.x = vp.s*(c - 0.5f*vp.hres + sp.x);
+                pp.y = vp.s*(r - 0.5f*vp.vres + sp.y);
+                ray = camera_ptr->get_ray(pp);
+                L += tracer_ptr->trace_ray(ray);
+            }
+            L /= static_cast<float>(vp.num_samples);
+            L = max_to_one(L);
+            QColor pixColor(int(255.99*L.r), int(255.99*L.g), int(255.99*L.b));
+            image->setPixelColor(r,c,pixColor);
+        }
+    }
+    emit renderComolete();
 }
 
 void World::delete_objectes()

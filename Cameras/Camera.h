@@ -2,7 +2,8 @@
 #define __CAMERA__
 
 #include "../BasicTools/Point3D.h" //included Vector3D
-
+#include "BasicTools/Point2D.h"
+#include "BasicTools/Ray.h"
 class World;
 
 class Camera {
@@ -15,8 +16,8 @@ public:
 	virtual ~Camera();
 
 	virtual Camera*	clone(void) const = 0;
-
-	virtual void render_scene(const World& w) = 0;
+    virtual Ray get_ray(Point2D &point) const=0;
+    //virtual void render_scene(const World& w) = 0;
 
 	void set_eye(const Point3D& p);
 

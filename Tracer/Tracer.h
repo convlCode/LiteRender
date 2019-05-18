@@ -1,10 +1,10 @@
-#ifndef __TRACER__
-#define __TRACER__
+ï»¿#ifndef TRACER_H
+#define TRACER_H
 
 #include "../BasicTools/Constants.h"
 #include "../BasicTools/RGBColor.h"
 #include "../BasicTools/Ray.h"
-//#include "../World/World.h" »áÒıÆğ½»²æinclude,¿ÉÄÜÓĞÉè¼Æ´íÎó
+//#include "../World/World.h" ä¼šå¼•èµ·äº¤å‰include,å¯èƒ½æœ‰è®¾è®¡é”™è¯¯
 
 class World;
 
