@@ -1,4 +1,4 @@
-#include "World.h"
+﻿#include "World.h"
 #include <iostream>
 #include <algorithm>
 #include "Tracer/RayCast.h"
@@ -7,7 +7,7 @@
 #include "Sampler/Regular.h"
 #include "Lights/Directional.h"
 #include "Materials/Matte.h"
-
+#include <QDebug>
 World::World()
 	:background_color(black),tracer_ptr{nullptr},
       camera_ptr{nullptr},image{nullptr}
@@ -105,19 +105,41 @@ RGBColor World::max_to_one(const RGBColor & c) const
         return (c);
 }
 
+void World::clearScene(){
+
+    /*
+    for (auto it = lights.begin(); it != lights.end(); it++) {
+        delete (*it);
+    }
+    lights.clear();*/
+
+    for (auto it = objects.begin(); it != objects.end(); it++) {
+        delete (*it);
+    }
+    objects.clear();
+    if(tracer_ptr){
+        delete tracer_ptr;
+        tracer_ptr=nullptr;
+    }
+    if(camera_ptr){
+        delete camera_ptr;
+        camera_ptr=nullptr;
+    }
+}
 void World::render_scene()
 {
-    if(image)
+    if(image){
         delete image;
+    }
     image=new QImage(vp.vres,vp.hres,QImage::Format_RGB888);
-    RGBColor L;
     Ray ray;
+    RGBColor L;
     Point2D sp; //sample point in [0,1]*[0,1]
     Point2D pp; //sample point on a pixel
 
     for (int r = 0; r < vp.vres; r++) {
         for (int c = 0; c < vp.hres; c++) {
-            L = background_color;
+            L=background_color;
             for (int j = 0; j < vp.num_samples; ++j) {
                 sp = vp.sampler_ptr->sample_unit_square();
                 pp.x = vp.s*(c - 0.5f*vp.hres + sp.x);
@@ -132,6 +154,7 @@ void World::render_scene()
         }
     }
     emit renderComolete();
+    //clearScene();//没有这一步的话，像素值会增加一倍,因为在renderComplete中会再次调用build
 }
 
 void World::delete_objectes()
