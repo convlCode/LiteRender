@@ -33,6 +33,7 @@ private:
 
 signals:
     void renderComolete();
+    void updateProgeress();
     //void clearCanvas();
 public:
 	ViewPlane vp;
@@ -42,6 +43,7 @@ public:
 	std::vector<GeometricObject *> objects;
 	std::vector<Light*>			lights;
     QImage* image;
+    float   renderProgress;
 };
 
 inline void World::add_object(GeometricObject * object_ptr)

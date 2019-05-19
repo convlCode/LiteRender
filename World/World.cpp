@@ -10,7 +10,7 @@
 #include <QDebug>
 World::World()
 	:background_color(black),tracer_ptr{nullptr},
-      camera_ptr{nullptr},image{nullptr}
+      camera_ptr{nullptr},image{nullptr},renderProgress{0.0f}
 {
 }
 
@@ -40,7 +40,7 @@ void World::build()
 	vp.set_pixel_size(1.0f);
 	vp.set_gamma(1.0);
 	vp.set_samples(num_samples);
-
+    background_color = gray;
 	tracer_ptr = new RayCast(this);
 
 	Pinhole* pinhole_ptr = new Pinhole;
@@ -136,6 +136,8 @@ void World::render_scene()
     RGBColor L;
     Point2D sp; //sample point in [0,1]*[0,1]
     Point2D pp; //sample point on a pixel
+    int allPixelNum = vp.hres*vp.vres;
+    int currentPixelNum = 0;
 
     for (int r = 0; r < vp.vres; r++) {
         for (int c = 0; c < vp.hres; c++) {
@@ -151,6 +153,9 @@ void World::render_scene()
             L = max_to_one(L);
             QColor pixColor(int(255.99f*L.r), int(255.99f*L.g), int(255.99f*L.b));
             image->setPixelColor(r,c,pixColor);
+            currentPixelNum++;
+            renderProgress = currentPixelNum*100.0f/allPixelNum;
+            emit updateProgeress();
         }
     }
     emit renderComolete();

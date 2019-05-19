@@ -10,9 +10,10 @@ MainWindow::MainWindow(QWidget *parent) :
     world = new World();
     //connect(world,SIGNAL(renderComplete()),this,SLOT(renderComplete()));
     connect(world,&World::renderComolete,this,&MainWindow::renderComplete);
-    //connect(world,&World::clearCanvas,[this]{
-        //ui->renderCanvas->clear();
-    //});
+    connect(world,&World::updateProgeress,[this]{
+        ui->renderCanvas->setPixmap(QPixmap::fromImage(*world->image));
+        ui->progressBar->setValue(static_cast<int>(world->renderProgress));
+    });
     world->build();
 }
 
@@ -29,6 +30,6 @@ void MainWindow::renderComplete()
 
 void MainWindow::on_startButton_clicked()
 {
-    //world->build();
+    ui->renderCanvas->clear();
     world->render_scene();
 }
