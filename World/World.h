@@ -44,6 +44,7 @@ public:
 	std::vector<Light*>			lights;
     QImage* image;
     float   renderProgress;
+    bool    stopRender;
 };
 
 inline void World::add_object(GeometricObject * object_ptr)

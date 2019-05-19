@@ -9,8 +9,8 @@
 #include "Materials/Matte.h"
 #include <QDebug>
 World::World()
-	:background_color(black),tracer_ptr{nullptr},
-      camera_ptr{nullptr},image{nullptr},renderProgress{0.0f}
+    :background_color(black),tracer_ptr{nullptr},camera_ptr{nullptr},
+      image{nullptr},renderProgress{0.0f},stopRender{false}
 {
 }
 
@@ -141,6 +141,8 @@ void World::render_scene()
 
     for (int r = 0; r < vp.vres; r++) {
         for (int c = 0; c < vp.hres; c++) {
+            if(stopRender)
+                break;
             L=background_color;
             for (int j = 0; j < vp.num_samples; ++j) {
                 sp = vp.sampler_ptr->sample_unit_square();

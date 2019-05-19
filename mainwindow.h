@@ -19,6 +19,11 @@ public:
 private slots:
     void renderComplete();
     void on_startButton_clicked();
+    void on_stopButton_clicked();
+    void on_saveButton_clicked();
+
+signals:
+    void startRendering();
 
 private:
     Ui::MainWindow *ui;
