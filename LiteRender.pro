@@ -41,6 +41,7 @@ SOURCES +=\
     Lights/Light.cpp \
     Materials/Material.cpp \
     Materials/Matte.cpp \
+    Materials/Phong.cpp \
     Sampler/MultiJittered.cpp \
     Sampler/Regular.cpp \
     Sampler/Sampler.cpp \
@@ -50,7 +51,9 @@ SOURCES +=\
     World/World.cpp \
     main.cpp \
     mainwindow.cpp \
-    Lights/Ambient.cpp
+    Lights/Ambient.cpp \
+    BxDFs/Glossyspecular.cpp \
+
 
 HEADERS += \
     BasicTools/Constants.h \
@@ -71,6 +74,7 @@ HEADERS += \
     Lights/Light.h \
     Materials/Material.h \
     Materials/Matte.h \
+    Materials/Phong.h \
     Sampler/MultiJittered.h \
     Sampler/Regular.h \
     Sampler/Sampler.h \
@@ -79,7 +83,10 @@ HEADERS += \
     World/ViewPlane.h \
     World/World.h \
     mainwindow.h \
-    Lights/Ambient.h
+    Lights/Ambient.h \
+    BxDFs/Glossyspecular.h \
+    Materials/Phong.h
+
 
 FORMS += \
         mainwindow.ui

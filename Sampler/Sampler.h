@@ -1,4 +1,4 @@
-#ifndef SAMPLER_H
+﻿#ifndef SAMPLER_H
 #define SAMPLER_H
 
 #include <vector>
@@ -28,8 +28,10 @@ public:
 	void shuffle_y_coordinates();
 	void setup_shuffled_indices();
 
-	Point2D	sample_unit_square();
+    void map_samples_to_hemisphere(const float exp);
 
+	Point2D	sample_unit_square();
+    Point3D sample_hemisphere();
 
 protected:
 
@@ -39,6 +41,7 @@ protected:
 	std::vector<int>		shuffled_indices;		// shuffled samples array indices
 	unsigned long 			count;					// the current number of sample points used
 	int 					jump;					// random index jump
+    std::vector<Point3D> 	hemisphere_samples;
 };
 
 inline void Sampler::set_num_sets(const int np)

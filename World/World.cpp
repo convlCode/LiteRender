@@ -8,6 +8,7 @@
 #include "Lights/Directional.h"
 #include "Materials/Matte.h"
 #include "Lights/Ambient.h"
+#include "Materials/Phong.h"
 #include <QDebug>
 World::World()
     :background_color(black),tracer_ptr{nullptr},camera_ptr{nullptr},
@@ -62,13 +63,19 @@ void World::build()
 
 	RGBColor light_purple(0.65f, 0.3f, 1.0f);
 
-	Matte* matte_ptr = new Matte;
-    matte_ptr->set_ka(0.0f);
-	matte_ptr->set_kd(0.75f);
-	matte_ptr->set_cd(light_purple);
-	
+//	Matte* matte_ptr = new Matte;
+//    matte_ptr->set_ka(0.0f);
+//	matte_ptr->set_kd(0.75f);
+//	matte_ptr->set_cd(light_purple);
+    Phong* phong_ptr = new Phong;
+    phong_ptr->set_ka(0.1f);
+    phong_ptr->set_kd(0.5f);
+    phong_ptr->set_ks(0.25f);
+    phong_ptr->set_exp(20.0f);
+    phong_ptr->set_cd(light_purple);
+
     Sphere*	sphere_ptr = new Sphere(Vector3D(0.0, 0.0, -50.0), 100.0);
-	sphere_ptr->set_material(matte_ptr);							// light purple
+    sphere_ptr->set_material(phong_ptr);							// light purple
 	add_object(sphere_ptr);
 }
 

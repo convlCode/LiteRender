@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    setWindowTitle("LiteRender");
     world = new World();
     //connect(world,SIGNAL(renderComplete()),this,SLOT(renderComplete()));
     connect(this,&MainWindow::startRendering,world,&World::render_scene);

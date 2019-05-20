@@ -1,4 +1,4 @@
-#ifndef VECTOR3D_H
+﻿#ifndef VECTOR3D_H
 #define VECTOR3D_H
 
 class Vector3D
@@ -18,7 +18,7 @@ public:
 	Vector3D operator*(const double s) const;
 	Vector3D operator/(const double s) const;
 
-	Vector3D operator-();
+    Vector3D operator-() const;
 	Vector3D operator+=(const Vector3D &v) const;
 	Vector3D operator-=(const Vector3D &v) const;
 	Vector3D operator^ (const Vector3D& v) const; //cross product
@@ -31,7 +31,7 @@ public:
 	double z;
 };
 
-inline Vector3D Vector3D::operator-()
+inline Vector3D Vector3D::operator-() const
 {
 	return Vector3D(-x, -y, -z);
 }
