@@ -25,4 +25,4 @@
 
 ## License
 
-本项目遵循 MIT License - 点击查看详情 [LICENSE.md](https://mit-license.org/) 。
+本项目遵循 MIT License - 点击查看详情 [LICENSE.md](https://github.com/convlCode/LiteRender/blob/master/LICENSE.md) 。
