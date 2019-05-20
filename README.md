@@ -13,6 +13,7 @@
 
 ### 运行
   安装好上述环境后，先下载本仓库的源代码。然后打开Qt Creator，并点击软件菜单栏的“文件->打开文件或项目”，找到下载代码的目录，点击LiteRender.pro文件即可打开本项目。接下来只需在Qt Creator中编译代码就可以运行了。渲染器运行界面如下：
+  ![运行截图](https://github.com/convlCode/LiteRender/blob/master/images/liteRender.png "运行截图")
 
 ## 版本控制
 
