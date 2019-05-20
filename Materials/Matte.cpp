@@ -1,4 +1,4 @@
-#include "Matte.h"
+﻿#include "Matte.h"
 #include "../BasicTools/ShadeRec.h"
 #include "../World/World.h"
 #include <iostream>
@@ -65,7 +65,7 @@ Matte & Matte::operator=(const Matte & rhs)
 RGBColor Matte::shade(ShadeRec & sr)
 {
 	Vector3D wo = -sr.ray.d;
-	RGBColor L;
+    RGBColor L = ambient_brdf->rho(sr,wo) * sr.w.ambient_ptr->L(sr);
 	size_t num_lights = sr.w.lights.size();
 	for (size_t j = 0; j < num_lights; ++j) {
 		Vector3D wi = sr.w.lights[j]->get_direction(sr);

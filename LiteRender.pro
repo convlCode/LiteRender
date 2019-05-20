@@ -49,7 +49,8 @@ SOURCES +=\
     World/ViewPlane.cpp \
     World/World.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    Lights/Ambient.cpp
 
 HEADERS += \
     BasicTools/Constants.h \
@@ -77,7 +78,8 @@ HEADERS += \
     Tracer/Tracer.h \
     World/ViewPlane.h \
     World/World.h \
-    mainwindow.h
+    mainwindow.h \
+    Lights/Ambient.h
 
 FORMS += \
         mainwindow.ui

@@ -7,10 +7,11 @@
 #include "Sampler/Regular.h"
 #include "Lights/Directional.h"
 #include "Materials/Matte.h"
+#include "Lights/Ambient.h"
 #include <QDebug>
 World::World()
     :background_color(black),tracer_ptr{nullptr},camera_ptr{nullptr},
-      image{nullptr},renderProgress{0.0f},stopRender{false}
+     ambient_ptr{new Ambient},image{nullptr},renderProgress{0.0f},stopRender{false}
 {
 }
 
@@ -25,6 +26,10 @@ World::~World()
 		delete camera_ptr;
 		camera_ptr = nullptr;
 	}
+    if(ambient_ptr){
+        delete ambient_ptr;
+        ambient_ptr = nullptr;
+    }
     if(image){
         delete  image;
     }
@@ -58,6 +63,7 @@ void World::build()
 	RGBColor light_purple(0.65f, 0.3f, 1.0f);
 
 	Matte* matte_ptr = new Matte;
+    matte_ptr->set_ka(0.0f);
 	matte_ptr->set_kd(0.75f);
 	matte_ptr->set_cd(light_purple);
 	
