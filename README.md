@@ -8,7 +8,7 @@
 
 ### 环境需求
 
-  1.支持C++11的C++编译器，本人开发时使用的Visual Studio 2017 。
+  1.支持C++11的C++编译器，本人开发时使用的Visual Studio 2017 。  
   2.安装Qt开发包，本人开发时使用的Qt5.12 。
 
 ### 运行
@@ -25,4 +25,4 @@
 
 ## License
 
-本项目遵循 MIT License - 点击查看详情 [LICENSE.md](https://github.com/convlCode/LiteRender/blob/master/LICENSE.md) 。
+本项目遵循 GPLv2 License - 点击查看详情 [LICENSE.md](https://github.com/convlCode/LiteRender/blob/master/LICENSE.md) 。
