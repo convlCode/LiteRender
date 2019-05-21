@@ -52,35 +52,7 @@ SOURCES +=\
     mainwindow.cpp \
     Lights/Ambient.cpp \
     BxDFs/Glossyspecular.cpp \
-    Materials/Phong.cpp \
-    BasicTools/Point2D.cpp \
-    BasicTools/Point3D.cpp \
-    BasicTools/Ray.cpp \
-    BasicTools/RGBColor.cpp \
-    BasicTools/ShadeRec.cpp \
-    BasicTools/Vector3D.cpp \
-    BxDFs/BRDF.cpp \
-    BxDFs/Glossyspecular.cpp \
-    BxDFs/Lambertian.cpp \
-    Cameras/Camera.cpp \
-    Cameras/Pinhole.cpp \
-    GeometricObjects/GeometryObject.cpp \
-    GeometricObjects/Sphere.cpp \
-    Lights/Ambient.cpp \
-    Lights/Directional.cpp \
-    Lights/Light.cpp \
-    Materials/Material.cpp \
-    Materials/Matte.cpp \
-    Materials/Phong.cpp \
-    Sampler/MultiJittered.cpp \
-    Sampler/Regular.cpp \
-    Sampler/Sampler.cpp \
-    Tracer/RayCast.cpp \
-    Tracer/Tracer.cpp \
-    World/ViewPlane.cpp \
-    World/World.cpp \
-    main.cpp \
-    mainwindow.cpp
+    Materials/Phong.cpp
 
 
 HEADERS += \
@@ -113,36 +85,7 @@ HEADERS += \
     mainwindow.h \
     Lights/Ambient.h \
     BxDFs/Glossyspecular.h \
-    Materials/Phong.h \
-    BasicTools/Constants.h \
-    BasicTools/Maths.h \
-    BasicTools/Point2D.h \
-    BasicTools/Point3D.h \
-    BasicTools/Ray.h \
-    BasicTools/RGBColor.h \
-    BasicTools/ShadeRec.h \
-    BasicTools/Vector3D.h \
-    BxDFs/BRDF.h \
-    BxDFs/Glossyspecular.h \
-    BxDFs/Lambertian.h \
-    Cameras/Camera.h \
-    Cameras/Pinhole.h \
-    GeometricObjects/GeometryObject.h \
-    GeometricObjects/Sphere.h \
-    Lights/Ambient.h \
-    Lights/Directional.h \
-    Lights/Light.h \
-    Materials/Material.h \
-    Materials/Matte.h \
-    Materials/Phong.h \
-    Sampler/MultiJittered.h \
-    Sampler/Regular.h \
-    Sampler/Sampler.h \
-    Tracer/RayCast.h \
-    Tracer/Tracer.h \
-    World/ViewPlane.h \
-    World/World.h \
-    mainwindow.h
+    Materials/Phong.h
 
 
 FORMS += \
