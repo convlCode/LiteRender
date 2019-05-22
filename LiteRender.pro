@@ -52,7 +52,8 @@ SOURCES +=\
     mainwindow.cpp \
     Lights/Ambient.cpp \
     BxDFs/Glossyspecular.cpp \
-    Materials/Phong.cpp
+    Materials/Phong.cpp \
+    Materials/Emissive.cpp
 
 
 HEADERS += \
@@ -85,7 +86,8 @@ HEADERS += \
     mainwindow.h \
     Lights/Ambient.h \
     BxDFs/Glossyspecular.h \
-    Materials/Phong.h
+    Materials/Phong.h \
+    Materials/Emissive.h
 
 
 FORMS += \
