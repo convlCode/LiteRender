@@ -29,9 +29,11 @@ public:
 	void setup_shuffled_indices();
 
     void map_samples_to_hemisphere(const float exp);
+    void map_samples_to_sphere();
 
 	Point2D	sample_unit_square();
     Point3D sample_hemisphere();
+    Point3D	sample_sphere();
 
 protected:
 
@@ -42,6 +44,7 @@ protected:
 	unsigned long 			count;					// the current number of sample points used
 	int 					jump;					// random index jump
     std::vector<Point3D> 	hemisphere_samples;
+    std::vector<Point3D> 	sphere_samples;
 };
 
 inline void Sampler::set_num_sets(const int np)

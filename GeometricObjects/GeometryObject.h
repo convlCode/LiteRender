@@ -1,10 +1,11 @@
-#ifndef _GEO_OBJECT_
-#define _GEO_OBJECT_
+﻿#ifndef GEO_OBJECT
+#define GEO_OBJECT
 
-#include "../BasicTools/Vector3D.h"
-#include "../BasicTools/Ray.h"
-#include "../BasicTools/RGBColor.h"
-#include "../BasicTools/ShadeRec.h"
+#include "BasicTools/Vector3D.h"
+#include "BasicTools/Ray.h"
+#include "BasicTools/RGBColor.h"
+#include "BasicTools/ShadeRec.h"
+
 class Material;
 
 class GeometricObject {
@@ -21,15 +22,18 @@ public:
 	virtual void set_material(Material* m_ptr);
 	Material* get_material() const;
 
+    virtual Point3D sample();
+    virtual Vector3D get_normal(const Point3D& p);
+    virtual float pdf(ShadeRec& sr);
 protected:
 	Material* material_ptr;
 };
 
 
-
 inline Material * GeometricObject::get_material() const
 {
-	return material_ptr;
+    return material_ptr;
 }
+
 
 #endif

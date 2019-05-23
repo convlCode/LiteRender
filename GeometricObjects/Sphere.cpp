@@ -1,4 +1,4 @@
-#include "Sphere.h"
+﻿#include "Sphere.h"
 #include <cmath>
 #include "../BasicTools/Point3D.h"
 
@@ -70,5 +70,29 @@ bool Sphere::hit(const Ray & ray, double & tmin, ShadeRec & sr) const
 		}
 	}
 
-	return false;
+    return false;
+}
+
+void Sphere::set_sampler(Sampler *sampler)
+{
+    sampler_ptr = sampler;
+    sampler_ptr->map_samples_to_sphere();
+}
+
+Point3D Sphere::sample()
+{
+    Point3D sample_point = sampler_ptr->sample_sphere();
+    return ((sample_point + center) * radius);
+}
+
+Vector3D Sphere::get_normal(const Point3D &p)
+{
+    Vector3D nor = sample() - center;
+    nor.normalize();
+    return nor;
+}
+
+float Sphere::pdf(ShadeRec &sr)
+{
+    return inv_area;
 }

@@ -1,4 +1,4 @@
-#include "GeometryObject.h"
+﻿#include "GeometryObject.h"
 #include "../BasicTools/Constants.h"
 #include "../Materials/Material.h"
 
@@ -42,5 +42,20 @@ void GeometricObject::set_material(Material * m_ptr)
 {
 	if (material_ptr)
 		delete material_ptr;
-	material_ptr = m_ptr;
+    material_ptr = m_ptr;
+}
+
+Point3D GeometricObject::sample()
+{
+    return Point3D(0.0);
+}
+
+Vector3D GeometricObject::get_normal(const Point3D &p)
+{
+    return Vector3D(0.0);
+}
+
+float GeometricObject::pdf(ShadeRec &sr)
+{
+    return 0.0f;
 }
