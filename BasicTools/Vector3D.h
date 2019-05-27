@@ -24,6 +24,8 @@ public:
 	Vector3D operator^ (const Vector3D& v) const; //cross product
 
 	void normalize();
+    double length() const;
+    double len_squared() const;
 
 public:
 	double x;
@@ -48,7 +50,12 @@ inline Vector3D Vector3D::operator-=(const Vector3D &v) const
 
 inline Vector3D Vector3D::operator^(const Vector3D & v) const
 {
-	return Vector3D(y * v.z - z * v.y, z * v.x - x * v.z, x * v.y - y * v.x);
+    return Vector3D(y * v.z - z * v.y, z * v.x - x * v.z, x * v.y - y * v.x);
+}
+
+inline double Vector3D::len_squared() const
+{
+    return (x * x + y * y + z * z);
 }
 
 #endif

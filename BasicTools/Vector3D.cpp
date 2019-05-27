@@ -1,4 +1,4 @@
-#include "Vector3D.h"
+﻿#include "Vector3D.h"
 #include <cmath>
 
 
@@ -68,4 +68,9 @@ void Vector3D::normalize()
 	x /= length;
 	y /= length;
 	z /= length;
+}
+
+double Vector3D::length() const
+{
+    return sqrt(x * x + y * y + z * z);
 }

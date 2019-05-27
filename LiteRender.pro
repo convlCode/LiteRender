@@ -53,7 +53,8 @@ SOURCES +=\
     Lights/Ambient.cpp \
     BxDFs/Glossyspecular.cpp \
     Materials/Phong.cpp \
-    Materials/Emissive.cpp
+    Materials/Emissive.cpp \
+    GeometricObjects/Rectangle.cpp
 
 
 HEADERS += \
@@ -87,7 +88,8 @@ HEADERS += \
     Lights/Ambient.h \
     BxDFs/Glossyspecular.h \
     Materials/Phong.h \
-    Materials/Emissive.h
+    Materials/Emissive.h \
+    GeometricObjects/Rectangle.h
 
 
 FORMS += \
