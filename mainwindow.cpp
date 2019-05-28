@@ -23,7 +23,9 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
-    delete world;
+    if(world){
+        delete world;
+    }
 }
 
 void MainWindow::renderComplete()

@@ -1,4 +1,4 @@
-#ifndef LIGHT_H
+﻿#ifndef LIGHT_H
 #define LIGHT_H
 
 #include "../BasicTools/Vector3D.h"
@@ -19,6 +19,9 @@ public:
 
 	virtual Vector3D get_direction(ShadeRec& sr) = 0;
 	virtual RGBColor L(ShadeRec& sr);
+
+    virtual float pdf(ShadeRec& sr); //for arealight
+    virtual float G(const ShadeRec& sr) const; //for arealight
 };
 
 #endif

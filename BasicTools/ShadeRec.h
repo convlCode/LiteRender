@@ -24,6 +24,7 @@ public:
 	double t;
 	World &w;
 	Material*	material_ptr;
+        int		depth; // recursion depth
 };
 
 #endif /* ifndef _SHADEREC_H_ */

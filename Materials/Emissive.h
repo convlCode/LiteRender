@@ -35,12 +35,12 @@ inline void Emissive::set_ce(const float c)
     ce.r = c;   ce.g = c;   ce.b = c;
 }
 
-void Emissive::set_ce(const RGBColor &c)
+inline void Emissive::set_ce(const RGBColor &c)
 {
     ce = c;
 }
 
-void Emissive::set_ce(const float r, const float g, const float b)
+inline void Emissive::set_ce(const float r, const float g, const float b)
 {
     ce.r = r;   ce.g = g;   ce.b = b;
 }

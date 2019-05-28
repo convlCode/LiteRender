@@ -1,4 +1,4 @@
-#ifndef MATTE_H
+﻿#ifndef MATTE_H
 #define MATTE_H
 
 #include "Material.h"
@@ -22,6 +22,7 @@ public:
 
 	virtual RGBColor shade(ShadeRec& sr);
 
+    virtual RGBColor area_light_shade(ShadeRec& sr);//for areaLight
 private:
 	Lambertian*		ambient_brdf;
 	Lambertian*		diffuse_brdf;

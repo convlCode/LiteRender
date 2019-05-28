@@ -74,5 +74,23 @@ RGBColor Matte::shade(ShadeRec & sr)
 			L += diffuse_brdf->f(sr, wo, wi) * sr.w.lights[j]->L(sr) * ndotwi;
 		}
 	}
-	return L;
+    return L;
+}
+
+RGBColor Matte::area_light_shade(ShadeRec &sr)
+{
+    Vector3D 	wo = -sr.ray.d;
+    RGBColor 	L = ambient_brdf->rho(sr, wo) * sr.w.ambient_ptr->L(sr);
+    auto 		num_lights = sr.w.lights.size();
+    for (decltype(num_lights) j = 0; j < num_lights; j++) {
+        Vector3D 	wi = sr.w.lights[j]->get_direction(sr);
+        float 		ndotwi = static_cast<float>(sr.normal * wi);
+        if (ndotwi > 0.0f) {
+            //bool in_shadow = false;
+            L += (diffuse_brdf->f(sr, wo, wi)
+                * sr.w.lights[j]->L(sr) * sr.w.lights[j]->G(sr) * ndotwi ) / sr.w.lights[j]->pdf(sr);
+        }
+    }
+
+    return L;
 }

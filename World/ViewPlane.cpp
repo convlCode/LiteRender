@@ -3,14 +3,15 @@
 #include "../Sampler/Regular.h"
 ViewPlane::ViewPlane()
 	:hres{ 200 }, vres{ 100 }, s{1.0f}, gamma{ 0.0f }, inv_gamma{ 0.0f }, 
-	show_out_of_gamut{ false },sampler_ptr{ nullptr }, num_samples{ 1 }
+    show_out_of_gamut{ false },sampler_ptr{ nullptr }, num_samples{ 1 },
+    max_depth{1}
 {
 }
 
 ViewPlane::ViewPlane(const ViewPlane & vp)
 	: hres{ vp.hres }, vres{ vp.vres },s{vp.s},gamma{vp.gamma},
 	inv_gamma{vp.inv_gamma},show_out_of_gamut{vp.show_out_of_gamut},
-    sampler_ptr{vp.sampler_ptr},num_samples{vp.num_samples}
+    sampler_ptr{vp.sampler_ptr},num_samples{vp.num_samples},max_depth{vp.max_depth}
 {
 }
 

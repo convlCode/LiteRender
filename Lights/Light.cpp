@@ -1,4 +1,4 @@
-#include "Light.h"
+﻿#include "Light.h"
 
 Light::Light()
 {
@@ -19,5 +19,15 @@ Light & Light::operator=(const Light & rhs)
 
 RGBColor Light::L(ShadeRec & sr)
 {
-	return RGBColor(0.0f);
+    return RGBColor(0.0f);
+}
+
+float Light::pdf(ShadeRec &sr)
+{
+    return 0.0f;
+}
+
+float Light::G(const ShadeRec &sr) const
+{
+    return 0.0f;
 }

@@ -54,7 +54,9 @@ SOURCES +=\
     BxDFs/Glossyspecular.cpp \
     Materials/Phong.cpp \
     Materials/Emissive.cpp \
-    GeometricObjects/Rectangle.cpp
+    GeometricObjects/Rectangle.cpp \
+    Lights/Arealight.cpp \
+    Tracer/Arealighting.cpp
 
 
 HEADERS += \
@@ -89,7 +91,9 @@ HEADERS += \
     BxDFs/Glossyspecular.h \
     Materials/Phong.h \
     Materials/Emissive.h \
-    GeometricObjects/Rectangle.h
+    GeometricObjects/Rectangle.h \
+    Lights/Arealight.h \
+    Tracer/Arealighting.h
 
 
 FORMS += \

@@ -1,4 +1,4 @@
-#ifndef VIEWPLANE_H
+﻿#ifndef VIEWPLANE_H
 #define VIEWPLANE_H
 
 #include "../Sampler/Sampler.h"
@@ -17,15 +17,17 @@ public:
 	void set_gamma_display(const bool show);
 	void set_samples(const int n);
 	void set_sampler(Sampler* sp);
+    void set_max_depth(const int md);
 public:
-	int hres;
-	int vres;
-	float s;
-	float gamma;
-	float inv_gamma;
-	bool show_out_of_gamut;
-	Sampler* sampler_ptr;
-	int num_samples;
+    int         hres;
+    int         vres;
+    float       s;
+    float       gamma;
+    float       inv_gamma;
+    bool        show_out_of_gamut;
+    Sampler*    sampler_ptr;
+    int         num_samples;
+    int         max_depth;
 };
 
 inline void ViewPlane::set_hres(const int h)
@@ -51,7 +53,12 @@ inline void ViewPlane::set_gamma(const float g)
 
 inline void ViewPlane::set_gamma_display(const bool show)
 {
-	show_out_of_gamut = show;
+    show_out_of_gamut = show;
+}
+
+inline void ViewPlane::set_max_depth(const int md)
+{
+    max_depth = md;
 }
 
 #endif // !VIEWPLANE_H
