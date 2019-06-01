@@ -13,6 +13,7 @@
 #include "Tracer/Arealighting.h"
 #include "Materials/Emissive.h"
 #include "GeometricObjects/Rectangle.h"
+#include "GeometricObjects/Plane.h"
 #include <QDebug>
 World::World()
     :background_color(black),tracer_ptr{nullptr},camera_ptr{nullptr},
@@ -67,13 +68,13 @@ void World::build()
     emissive_ptr->set_ce(white);
 
     // define a rectangle for the rectangular light
-    double width = 160.0;
-    double height = 160.0;
-    Point3D center(0.0, 180.0, -40.0);	// center of each area light (rectangular, disk, and spherical)
+    double width = 60.0;
+    double height = 60.0;
+    Point3D center(0.0, 100.0, 40.0);	// center of each area light (rectangular, disk, and spherical)
     Point3D p0(-0.5 * width, center.y - 0.5 * height, center.z);
     Vector3D a(width, 0.0, 0.0);
     Vector3D b(0.0, height, 0.0);
-    Vector3D normal(0, 0, 1);
+    Vector3D normal(0, -1, -0.8);
 
     Rectangle* rectangle_ptr = new Rectangle(p0, a, b, normal);
     rectangle_ptr->set_material(emissive_ptr);
@@ -100,6 +101,15 @@ void World::build()
     Sphere*	sphere_ptr1 = new Sphere(Vector3D(0, -30, 0), 40);
     sphere_ptr1->set_material(matte_ptr1);	   							// yellow
     add_object(sphere_ptr1);
+
+    //down plane
+    Matte* matte_ptr9 = new Matte;
+    matte_ptr9->set_ka(ka);
+    matte_ptr9->set_kd(kd);
+    matte_ptr9->set_cd(green);
+    Plane* plane_ptr9 = new Plane(Point3D(0, -60, 0), Vector3D(0, 1, 0));
+    plane_ptr9->set_material(matte_ptr9);
+    add_object(plane_ptr9);
 }
 
 
