@@ -57,7 +57,8 @@ SOURCES +=\
     GeometricObjects/Rectangle.cpp \
     Lights/Arealight.cpp \
     Tracer/Arealighting.cpp \
-    GeometricObjects/Plane.cpp
+    GeometricObjects/Plane.cpp \
+    Tracer/PathTracer.cpp
 
 
 HEADERS += \
@@ -95,7 +96,8 @@ HEADERS += \
     GeometricObjects/Rectangle.h \
     Lights/Arealight.h \
     Tracer/Arealighting.h \
-    GeometricObjects/Plane.h
+    GeometricObjects/Plane.h \
+    Tracer/PathTracer.h
 
 
 FORMS += \

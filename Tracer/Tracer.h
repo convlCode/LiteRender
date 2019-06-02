@@ -18,7 +18,7 @@ public:
 	virtual RGBColor trace_ray(const Ray &ray) const;
     virtual RGBColor trace_ray(const Ray ray, const int depth) const;
 public:
-	World* world_ptr;
+    World* world_ptr;
 };
 
 #endif

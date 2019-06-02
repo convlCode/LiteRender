@@ -14,6 +14,7 @@
 #include "Materials/Emissive.h"
 #include "GeometricObjects/Rectangle.h"
 #include "GeometricObjects/Plane.h"
+#include "Tracer/Pathtracer.h"
 #include <QDebug>
 World::World()
     :background_color(black),tracer_ptr{nullptr},camera_ptr{nullptr},
@@ -51,9 +52,11 @@ void World::build()
 	vp.set_pixel_size(1.0f);
 	vp.set_gamma(1.0);
 	vp.set_samples(num_samples);
+    vp.set_max_depth(10);
     background_color = gray;
 
-    tracer_ptr = new AreaLighting(this);
+    //tracer_ptr = new AreaLighting(this);
+    tracer_ptr = new    PathTracer(this);
     MultiJittered* sampler_ptr = new MultiJittered(num_samples);
 
 	Pinhole* pinhole_ptr = new Pinhole;
@@ -98,14 +101,16 @@ void World::build()
     matte_ptr1->set_ka(ka);
     matte_ptr1->set_kd(kd);
     matte_ptr1->set_cd(yellow);
+
     Sphere*	sphere_ptr1 = new Sphere(Vector3D(0, -30, 0), 40);
     sphere_ptr1->set_material(matte_ptr1);	   							// yellow
+
     add_object(sphere_ptr1);
 
     //down plane
     Matte* matte_ptr9 = new Matte;
-    matte_ptr9->set_ka(ka);
-    matte_ptr9->set_kd(kd);
+    matte_ptr9->set_ka(0.2f);
+    matte_ptr9->set_kd(0.1f);
     matte_ptr9->set_cd(green);
     Plane* plane_ptr9 = new Plane(Point3D(0, -60, 0), Vector3D(0, 1, 0));
     plane_ptr9->set_material(matte_ptr9);

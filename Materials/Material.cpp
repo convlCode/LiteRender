@@ -32,3 +32,8 @@ RGBColor Material::area_light_shade(ShadeRec &sr)
 {
     return black;
 }
+
+RGBColor Material::path_shade(ShadeRec &sr)
+{
+    return black;
+}

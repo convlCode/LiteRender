@@ -23,6 +23,7 @@ public:
 	virtual RGBColor shade(ShadeRec& sr);
 
     virtual RGBColor area_light_shade(ShadeRec& sr);//for areaLight
+    virtual RGBColor path_shade(ShadeRec& sr);
 private:
 	Lambertian*		ambient_brdf;
 	Lambertian*		diffuse_brdf;

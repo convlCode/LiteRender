@@ -19,6 +19,7 @@ public:
 
     virtual RGBColor get_Le(ShadeRec& sr) const;
     virtual RGBColor area_light_shade(ShadeRec& sr);
+    virtual RGBColor path_shade(ShadeRec& sr);
 
 private:
     float		ls;
