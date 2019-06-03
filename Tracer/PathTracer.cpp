@@ -1,7 +1,7 @@
 ﻿#include "PathTracer.h"
 #include "World/World.h"
 #include "Materials/Material.h"
-
+#include <QDebug>
 PathTracer::PathTracer()
     :Tracer()
 {
@@ -24,7 +24,6 @@ RGBColor PathTracer::trace_ray(const Ray ray, const int depth) const
         if (sr.hit_an_object) {
             sr.depth = depth;
             sr.ray = ray;
-
             return (sr.material_ptr->path_shade(sr));
         }
         else

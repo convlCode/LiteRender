@@ -1,7 +1,9 @@
-#ifndef LAMBERTIAN_H
+﻿#ifndef LAMBERTIAN_H
 #define LAMBERTIAN_H
 
 #include "BRDF.h"
+
+class Sampler;
 
 class Lambertian : public BRDF {
 public:
@@ -21,9 +23,13 @@ public:
 	void set_cd(const float r, const float g, const float b);
 	void set_cd(const float c);
 
+    virtual RGBColor sample_f(const ShadeRec& sr, const Vector3D& wo, Vector3D& wi, float& pdf) const;
+    void set_sampler(Sampler* s_ptr);
+
 public:
 	float kd;
-	RGBColor cd;                                                                               
+    RGBColor cd;
+    Sampler*	sampler_ptr;    // for use in sample_f
 };
 
 inline void Lambertian::set_ka(const float k)

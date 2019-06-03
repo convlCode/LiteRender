@@ -14,7 +14,7 @@
 #include "Materials/Emissive.h"
 #include "GeometricObjects/Rectangle.h"
 #include "GeometricObjects/Plane.h"
-#include "Tracer/Pathtracer.h"
+#include "Tracer/PathTracer.h"
 #include <QDebug>
 World::World()
     :background_color(black),tracer_ptr{nullptr},camera_ptr{nullptr},
@@ -46,7 +46,7 @@ World::~World()
 
 void World::build()
 {
-	int num_samples = 25;
+    int num_samples = 1024;
 	vp.set_hres(400);
 	vp.set_vres(400);
 	vp.set_pixel_size(1.0f);
@@ -68,7 +68,7 @@ void World::build()
 
     Emissive* emissive_ptr = new Emissive;
     emissive_ptr->scale_radiance(80.0);
-    emissive_ptr->set_ce(white);
+    emissive_ptr->set_ce(1.0f, 0.73f, 0.4f);
 
     // define a rectangle for the rectangular light
     double width = 60.0;
@@ -77,19 +77,13 @@ void World::build()
     Point3D p0(-0.5 * width, center.y - 0.5 * height, center.z);
     Vector3D a(width, 0.0, 0.0);
     Vector3D b(0.0, height, 0.0);
-    Vector3D normal(0, -1, -0.8);
+    Vector3D normal(0, -1.0, -0.85);
 
     Rectangle* rectangle_ptr = new Rectangle(p0, a, b, normal);
     rectangle_ptr->set_material(emissive_ptr);
     rectangle_ptr->set_sampler(sampler_ptr);
     //	rectangle_ptr->set_shadows(false);
     add_object(rectangle_ptr);
-
-    AreaLight* area_light_ptr = new AreaLight;
-    area_light_ptr->set_object(rectangle_ptr);
-
-    //area_light_ptr->set_cast_shadow(true);
-    add_light(area_light_ptr);
 
 	RGBColor light_purple(0.65f, 0.3f, 1.0f);
     RGBColor yellow(1, 1, 0);
@@ -101,6 +95,7 @@ void World::build()
     matte_ptr1->set_ka(ka);
     matte_ptr1->set_kd(kd);
     matte_ptr1->set_cd(yellow);
+    matte_ptr1->set_sampler(sampler_ptr);
 
     Sphere*	sphere_ptr1 = new Sphere(Vector3D(0, -30, 0), 40);
     sphere_ptr1->set_material(matte_ptr1);	   							// yellow
@@ -109,12 +104,15 @@ void World::build()
 
     //down plane
     Matte* matte_ptr9 = new Matte;
-    matte_ptr9->set_ka(0.2f);
-    matte_ptr9->set_kd(0.1f);
+    matte_ptr9->set_ka(0.0f);
+    matte_ptr9->set_kd(0.5f);
     matte_ptr9->set_cd(green);
+    matte_ptr9->set_sampler(sampler_ptr);
+
     Plane* plane_ptr9 = new Plane(Point3D(0, -60, 0), Vector3D(0, 1, 0));
     plane_ptr9->set_material(matte_ptr9);
     add_object(plane_ptr9);
+    qDebug("fuck");
 }
 
 
@@ -189,7 +187,8 @@ void World::render_scene()
     Point2D pp; //sample point on a pixel
     int allPixelNum = vp.hres*vp.vres;
     int currentPixelNum = 0;
-
+    int depth = 0;
+    qDebug("fuck rendering");
     for (int r = 0; r < vp.vres; ++r) {
         for (int c = 0; c < vp.hres; c++) {
             if(stopRender)
@@ -200,7 +199,7 @@ void World::render_scene()
                 pp.x = vp.s*(c - 0.5f*vp.hres + sp.x);
                 pp.y = vp.s*(r - 0.5f*vp.vres + sp.y);
                 ray = camera_ptr->get_ray(pp);
-                L += tracer_ptr->trace_ray(ray,0);
+                L += tracer_ptr->trace_ray(ray,depth);
             }
             L /= static_cast<float>(vp.num_samples);
             L = max_to_one(L);
@@ -208,7 +207,7 @@ void World::render_scene()
             image->setPixelColor(c,vp.vres-r-1,pixColor);//r is y,c is x
             currentPixelNum++;
             renderProgress = currentPixelNum*100.0f/allPixelNum;
-            emit updateProgeress();
+            //emit updateProgeress();
         }
     }
     emit renderComolete();

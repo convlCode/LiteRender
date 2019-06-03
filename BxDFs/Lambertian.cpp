@@ -1,13 +1,14 @@
-#include "Lambertian.h"
+﻿#include "Lambertian.h"
 #include "../BasicTools/Constants.h"
+#include "Sampler/Sampler.h"
 
 Lambertian::Lambertian()
-	:	BRDF(),kd{0.0f},cd{0.0f}
+    :	BRDF(),kd{0.0f},cd{0.0f},sampler_ptr{nullptr}
 {
 }
 
 Lambertian::Lambertian(const Lambertian & lamb)
-	:	BRDF(lamb),kd{lamb.kd},cd{lamb.cd}
+    :	BRDF(lamb),kd{lamb.kd},cd{lamb.cd},sampler_ptr{nullptr}
 {
 }
 
@@ -37,5 +38,27 @@ RGBColor Lambertian::f(const ShadeRec & sr, const Vector3D & wo, const Vector3D 
 
 RGBColor Lambertian::rho(const ShadeRec & sr, const Vector3D & wo) const
 {
-	return kd * cd;
+    return kd * cd;
+}
+
+RGBColor Lambertian::sample_f(const ShadeRec &sr, const Vector3D &wo, Vector3D &wi, float &pdf) const
+{
+    Vector3D w = sr.normal;
+    Vector3D v = Vector3D(0.0034, 1, 0.0071) ^ w;
+    v.normalize();
+    Vector3D u = v ^ w;
+
+    Point3D sp = sampler_ptr->sample_hemisphere();
+    wi =  u * sp.x +  v * sp.y +  w * sp.z;
+    wi.normalize();
+
+    pdf = static_cast<float>(sr.normal * wi * invPI);
+    float finvPI = static_cast<float>(invPI);
+    return ( cd * kd * finvPI);
+}
+
+void Lambertian::set_sampler(Sampler *s_ptr)
+{
+    sampler_ptr = s_ptr;
+    sampler_ptr->map_samples_to_hemisphere(1);
 }

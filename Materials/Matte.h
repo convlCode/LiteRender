@@ -21,9 +21,9 @@ public:
 	void set_cd(const float c);
 
 	virtual RGBColor shade(ShadeRec& sr);
-
     virtual RGBColor area_light_shade(ShadeRec& sr);//for areaLight
     virtual RGBColor path_shade(ShadeRec& sr);
+    void set_sampler(Sampler* sp);
 private:
 	Lambertian*		ambient_brdf;
 	Lambertian*		diffuse_brdf;
